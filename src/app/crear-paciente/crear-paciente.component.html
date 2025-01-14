@@ -1,0 +1,82 @@
+<div class="container">
+    <h1>Crear Paciente</h1>
+    <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre" />
+        <div *ngIf="pacienteForm.get('nombre')?.invalid && pacienteForm.get('nombre')?.touched">
+          <small>El nombre es requerido y debe tener al menos 2 caracteres.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="apellido">Apellido:</label>
+        <input id="apellido" formControlName="apellido" />
+        <div *ngIf="pacienteForm.get('apellido')?.invalid && pacienteForm.get('apellido')?.touched">
+          <small>El apellido es requerido y debe tener al menos 2 caracteres.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="rut">RUT:</label>
+        <input id="rut" formControlName="rut" />
+        <div *ngIf="pacienteForm.get('rut')?.invalid && pacienteForm.get('rut')?.touched">
+          <small>El RUT es requerido y debe ser válido (Ej: 12345678-9).</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" formControlName="sexo">
+          <option value="">Seleccione</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+        <div *ngIf="pacienteForm.get('sexo')?.invalid && pacienteForm.get('sexo')?.touched">
+          <small>Debe seleccionar un sexo.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="edad">Edad:</label>
+        <input id="edad" type="number" formControlName="edad" />
+        <div *ngIf="pacienteForm.get('edad')?.invalid && pacienteForm.get('edad')?.touched">
+          <small>La edad es requerida y debe estar entre 0 y 120.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" />
+        <div *ngIf="pacienteForm.get('email')?.invalid && pacienteForm.get('email')?.touched">
+          <small>Debe ingresar un email válido.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="telefono">Teléfono:</label>
+        <input id="telefono" formControlName="telefono" />
+        <div *ngIf="pacienteForm.get('telefono')?.invalid && pacienteForm.get('telefono')?.touched">
+          <small>Debe ingresar un número válido (+569 seguido de 8 dígitos).</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input id="fechaNacimiento" type="date" formControlName="fechaNacimiento" />
+        <div *ngIf="pacienteForm.get('fechaNacimiento')?.invalid && pacienteForm.get('fechaNacimiento')?.touched">
+          <small>Debe ingresar una fecha válida.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="direccion">Dirección:</label>
+        <input id="direccion" formControlName="direccion" />
+        <div *ngIf="pacienteForm.get('direccion')?.invalid && pacienteForm.get('direccion')?.touched">
+          <small>La dirección es requerida y debe tener al menos 5 caracteres.</small>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="pacienteForm.invalid">Crear Paciente</button>
+    </form>
+  </div>
