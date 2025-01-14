@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { DefaultBackendService } from '../service/default-backend.service';
 import { CommonModule } from '@angular/common';
 import { MsalService } from '@azure/msal-angular';
 import { jwtDecode } from "jwt-decode";
+import { PacienteService } from '../service/paciente.service';
+import { Paciente } from '../model/paciente';
 
 
 type ProfileType = {
@@ -21,9 +22,9 @@ type ProfileType = {
 })
 export class ProfileComponent implements OnInit {
   profile: ProfileType | undefined;
-  responseBackend!: object;
+  pacientes: Paciente[] = [];
 
-  constructor(private authService: MsalService,private http: HttpClient, private backendService: DefaultBackendService) {}
+  constructor(private authService: MsalService,private http: HttpClient, private pacienteService: PacienteService) {}
 
   ngOnInit() {
     this.getProfile(environment.apiConfig.uri);
@@ -70,12 +71,12 @@ export class ProfileComponent implements OnInit {
     }
   }
   llamarBackend(): void {
-    this.backendService.consumirBackend().subscribe(response => {
-      this.responseBackend = response;
+    this.pacienteService.obtenerTodosLosPacientes().subscribe(response => {
+      this.pacientes = response;
     });
   }
 
-  mostrarResponseBackend(): string {
-    return JSON.stringify(this.responseBackend);
-  }
+  // mostrarResponseBackend(): string {
+  //   return JSON.stringify(this.responseBackend);
+  // }
 }
