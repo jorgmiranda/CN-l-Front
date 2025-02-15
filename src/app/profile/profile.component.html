@@ -1,47 +1,15 @@
-<div>
-    <p>Datos del medico</p>
-    <p><strong>First Name: </strong> {{profile?.name}}</p>
-    <p><strong>Email: </strong> {{profile?.preferred_username}}</p>
-</div>
+<mat-card class="profile-card">
+  <mat-card-header>
+    <mat-icon>account_circle</mat-icon>
+    <mat-card-title>Datos del Usuario</mat-card-title>
+  </mat-card-header>
 
-<h4>Llamar micro servicio de pacientes</h4>
-
-<h4><button (click)="llamarBackend()">Llamar backend</button></h4>
-<!-- <h4>Response backend: {{mostrarResponseBackend() | json}}</h4> -->
-
-<div class="container">
-    <h1>Lista de Pacientes</h1>
-    <table border="1" class="pacientes-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>RUT</th>
-          <th>Sexo</th>
-          <th>Edad</th>
-          <th>Email</th>
-          <th>Teléfono</th>
-          <th>Fecha de Nacimiento</th>
-          <th>Dirección</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let paciente of pacientes">
-          <td>{{ paciente.id }}</td>
-          <td>{{ paciente.nombre }}</td>
-          <td>{{ paciente.apellido }}</td>
-          <td>{{ paciente.rut }}</td>
-          <td>{{ paciente.sexo }}</td>
-          <td>{{ paciente.edad }}</td>
-          <td>{{ paciente.email }}</td>
-          <td>{{ paciente.telefono }}</td>
-          <td>{{ paciente.fechaNacimiento }}</td>
-          <td>{{ paciente.direccion }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <mat-card-content>
+    <p><mat-icon>person</mat-icon> <strong>Nombre:</strong> {{ profile?.name }}</p>
+    <mat-divider></mat-divider>
+    <p><mat-icon>email</mat-icon> <strong>Email:</strong> {{ profile?.preferred_username }}</p>
+  </mat-card-content>
+</mat-card>
 
 
   

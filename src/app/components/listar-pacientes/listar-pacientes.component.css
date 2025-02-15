@@ -1,0 +1,15 @@
+.container {
+    max-width: 95%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .mat-elevation-z8 {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  mat-paginator {
+    margin-top: 15px;
+  }
+  
