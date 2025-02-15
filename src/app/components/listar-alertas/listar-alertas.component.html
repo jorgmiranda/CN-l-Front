@@ -1,0 +1,45 @@
+<mat-card class="alertas-container">
+  <mat-tab-group>
+    <!-- Pestaña Moderadas -->
+    <mat-tab label="Moderadas">
+      <div *ngIf="alertasModeradas.length === 0" class="empty-alert">
+        No hay alertas moderadas.
+      </div>
+      <div *ngIf="alertasModeradas.length > 0" class="alert-list">
+        <mat-card *ngFor="let alerta of alertasModeradas" class="alert-card">
+          <mat-card-header>
+            <mat-card-title><strong>Paciente:</strong> {{ alerta.paciente.nombre }} {{ alerta.paciente.apellido }}</mat-card-title>
+            <mat-card-subtitle>Fecha: {{ alerta.fechaGeneracion | date:'short' }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ alerta.mensaje }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="atenderAlerta(alerta)">Atender</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <!-- Pestaña Críticas -->
+    <mat-tab label="Críticas">
+      <div *ngIf="alertasCriticas.length === 0" class="empty-alert">
+        No hay alertas críticas.
+      </div>
+      <div *ngIf="alertasCriticas.length > 0" class="alert-list">
+        <mat-card *ngFor="let alerta of alertasCriticas" class="alert-card alert-card-critical">
+          <mat-card-header>
+            <mat-card-title><strong>Paciente:</strong> {{ alerta.paciente.nombre }} {{ alerta.paciente.apellido }}</mat-card-title>
+            <mat-card-subtitle>Fecha: {{ alerta.fechaGeneracion | date:'short' }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ alerta.mensaje }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="atenderAlerta(alerta)">Atender</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

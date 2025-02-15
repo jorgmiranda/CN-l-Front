@@ -1,0 +1,91 @@
+<div class="container">
+    <h1>Listado de Pacientes</h1>
+
+    <button mat-raised-button color="primary" (click)="abrirCrearPaciente()">Nuevo Paciente</button>
+
+  
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.id }}</td>
+      </ng-container>
+  
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.nombre }}</td>
+      </ng-container>
+  
+      <!-- Apellido Column -->
+      <ng-container matColumnDef="apellido">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.apellido }}</td>
+      </ng-container>
+  
+      <!-- RUT Column -->
+      <ng-container matColumnDef="rut">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>RUT</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.rut }}</td>
+      </ng-container>
+  
+      <!-- Sexo Column -->
+      <ng-container matColumnDef="sexo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sexo</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.sexo }}</td>
+      </ng-container>
+  
+      <!-- Edad Column -->
+      <ng-container matColumnDef="edad">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Edad</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.edad }}</td>
+      </ng-container>
+  
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.email }}</td>
+      </ng-container>
+  
+      <!-- Teléfono Column -->
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Teléfono</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.telefono }}</td>
+      </ng-container>
+  
+      <!-- Fecha de Nacimiento Column -->
+      <ng-container matColumnDef="fechaNacimiento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Nacimiento</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.fechaNacimiento }}</td>
+      </ng-container>
+  
+      <!-- Dirección Column -->
+      <ng-container matColumnDef="direccion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Dirección</th>
+        <td mat-cell *matCellDef="let paciente">{{ paciente.direccion }}</td>
+      </ng-container>
+      <!-- Acciones -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let paciente">
+          <button mat-icon-button color="primary" (click)="editarPaciente(paciente)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="confirmarEliminar(paciente)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <!-- Encabezados y filas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    </table>
+  
+    <!-- Paginación -->
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  
+  </div>
+  

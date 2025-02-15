@@ -7,6 +7,9 @@ import { jwtDecode } from "jwt-decode";
 import { PacienteService } from '../service/paciente.service';
 import { Paciente } from '../model/paciente';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 type ProfileType = {
   name?: string;
@@ -16,7 +19,12 @@ type ProfileType = {
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule
+  ],
   styleUrls: [],
   standalone: true,
 })

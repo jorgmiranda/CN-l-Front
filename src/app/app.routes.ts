@@ -3,7 +3,8 @@ import { FailedComponent } from './failed/failed.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MsalGuard } from '@azure/msal-angular';
-import { CrearPacienteComponent } from './crear-paciente/crear-paciente.component';
+import { ListarPacientesComponent } from './components/listar-pacientes/listar-pacientes.component';
+import { ListarAlertasComponent } from './components/listar-alertas/listar-alertas.component';
 
 export const routes: Routes = [
   {
@@ -12,8 +13,13 @@ export const routes: Routes = [
     canActivate: [MsalGuard],
   },
   {
-    path: 'crear-pacientes',
-    component: CrearPacienteComponent,
+    path: 'listar-pacientes',
+    component: ListarPacientesComponent,
+    canActivate: [MsalGuard],
+  },
+  {
+    path: 'listar-alertas',
+    component: ListarAlertasComponent,
     canActivate: [MsalGuard],
   },
   {

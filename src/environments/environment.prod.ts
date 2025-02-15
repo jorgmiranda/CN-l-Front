@@ -2,12 +2,12 @@ export const environment = {
   production: true,
   msalConfig: {
     auth: {
-      clientId: 'ENTER_CLIENT_ID',
-      authority: 'ENTER_AUTHORITY',
+      clientId: 'a4d0c66a-ba7d-4618-9475-ad2d6bd54a6e',
+      authority: 'https://login.microsoftonline.com/9abd8f58-bea4-4ed2-a03b-8b93edc87250',
     },
   },
   apiConfig: {
-    scopes: ['ENTER_SCOPE'],
-    uri: 'ENTER_URI',
+    scopes: ['User.Read'],
+    uri: 'https://graph.microsoft.com/v1.0/me',
   },
 };
